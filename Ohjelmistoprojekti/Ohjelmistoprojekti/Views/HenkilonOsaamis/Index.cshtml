@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Ohjelmistoprojekti.Models.HenkilonOsaamiset>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Osaamistaso)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Henkilot.Etunimi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Osaamisaiheet.Kuvaus)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Osaamistaso)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Henkilot.Etunimi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Osaamisaiheet.Kuvaus)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.HenkilonOsaamisID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.HenkilonOsaamisID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.HenkilonOsaamisID })
+        </td>
+    </tr>
+}
+
+</table>
